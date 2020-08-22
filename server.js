@@ -1,6 +1,9 @@
-require('dotenv').config();
+const dotenv = require('dotenv');
 const express = require('express');
 const bodyParser = require('body-parser');
+
+//load values from .env file into process.env.EACH_VALUE_KEY
+dotenv.config();
 
 //express setup
 const app = express();
@@ -10,7 +13,6 @@ app.use(bodyParser.json());
 app.use(express.static('public'));
 
 //api
-
 app.post('/api/test', (request, response) => {
 	const jsonResponse = {
 		message: 'Here is some json from the server.',
